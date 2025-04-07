@@ -18,7 +18,8 @@ Este proyecto es un **asistente inteligente de la NBA** hecho con **Streamlit**,
 1. **Clona el repo:**
 
    ```bash
-   git clone https://tu-repo.com/nba-asistente.git
+   https://github.com/VicentCastells6/RAG-NBA
+   
    cd nba-asistente
 
 ## Instala los paquetes:
