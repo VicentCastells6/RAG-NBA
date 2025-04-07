@@ -1,19 +1,19 @@
 # 🏀 Asistente NBA con Llama 3 y Chroma
 
-¡Qué lo qué, mi rey! Este proyecto es un **asistente inteligente de la NBA** hecho con **Streamlit**, **LangChain**, **ChromaDB** y el motorcito de IA **Llama3**. Ideal pa’ cuando tú quieras preguntar vainas como “¿cuánto mide LeBron sin tenis?” o “¿qué carajo es un pick and roll?”.
+Este proyecto es un **asistente inteligente de la NBA** hecho con **Streamlit**, **LangChain**, **ChromaDB** y el motor de IA **Llama3**. Es una prueba de como funciona la IA y el uso de RAG para que el chatbot se focalice en los conocimientos aportados
 
 ---
 
-## 📦 ¿Qué hace esta vaina?
+## 📦 ¿Qué hace?
 
 - Te responde preguntas sobre la NBA con información sacada de documentos PDF y archivos SQL.
-- Te traduce documentos si vienen en otro idioma (pa' que no te joda el inglés).
-- Usa embeddings y recuperación de contexto pa’ que no se invente vainas.
+- Te traduce documentos si vienen en inglés, para poder hacer las consultas en español sin problemas.
+- Usa embeddings y recuperación de contexto para que no se invente vainas.
 - Tiene una interfaz heavy pa’ usar en el navegador.
 
 ---
 
-## 🚀 ¿Cómo se monta esta vaina?
+## 🚀 ¿Cómo se monta?
 
 1. **Clona el repo:**
 
