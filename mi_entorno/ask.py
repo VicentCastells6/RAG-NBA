@@ -16,7 +16,7 @@ vectordb = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding)
 # Aumentar k para recuperar más contexto relevante
 retriever = vectordb.as_retriever(search_kwargs={"k": 8})
 
-# Prompt mejorado con más contexto y ejemplos de preguntas
+# Prompt con contexto y directrices fijas
 prompt_template = """
 Eres un asistente experto en la NBA. Responde únicamente usando el contexto proporcionado. Si no encuentras información suficiente, dilo claramente.
 
@@ -44,7 +44,7 @@ qa_chain = RetrievalQA.from_chain_type(
     retriever=retriever,
     chain_type="stuff",
     chain_type_kwargs={"prompt": prompt},
-    return_source_documents=True  # Opcional: si quieres mostrar fuentes
+    return_source_documents=True 
 )
 
 st.set_page_config(page_title="Asistente NBA", page_icon="🏀")
@@ -52,7 +52,7 @@ st.set_page_config(page_title="Asistente NBA", page_icon="🏀")
 # Mostrar logo y título alineados
 logo_col, title_col = st.columns([1, 5])
 with logo_col:
-    st.image("mi_entorno\src\logo.png", width=60)  # Ajusta tamaño si lo quieres más pequeño
+    st.image("mi_entorno\src\logo.png", width=60)
 
 with title_col:
     st.title("🏀 Asistente NBA")
@@ -62,7 +62,6 @@ with title_col:
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# CSS mejorado con chat-container rectangular
 st.markdown("""
     <style>
     .chat-container {
@@ -108,21 +107,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Contenedor para chat con ID único
 chat_container = st.container()
 
-# Usar st.empty() para actualizar dinámicamente
+# st.empty() se usa para actualizar dinámicamente
 with chat_container:
     chat_placeholder = st.empty()
     
-    # Construir el contenido HTML del chat
+
     chat_html = '<div class="chat-container">'
     for q, a in st.session_state.chat_history:
         chat_html += f'<div class="user-msg">{q}</div>'
         chat_html += f'<div class="bot-msg">{a}</div>'
     chat_html += '</div>'
     
-    # Actualizar el contenido
+
     chat_placeholder.markdown(chat_html, unsafe_allow_html=True)
 
 # Función para procesar la consulta
@@ -134,10 +132,8 @@ def process_query():
                 response = qa_chain.invoke({"query": query})
                 answer = response["result"]
                 
-                # Añadir al historial
                 st.session_state.chat_history.append((query, answer))
                 
-                # Limpiar el input
                 st.session_state.user_input = ""
                 
                 
@@ -148,11 +144,9 @@ def process_query():
 if "user_input" not in st.session_state:
     st.session_state.user_input = ""
 
-# Input de usuario con columnas para mejor diseño y alineación
 st.container()
 cols = st.columns([5, 1])
 
-# Input en la primera columna (más grande)
 with cols[0]:
     st.text_input(
         key="user_input",
@@ -165,7 +159,6 @@ with cols[0]:
         kwargs={},
     )
 
-# Botón en la segunda columna
 with cols[1]:
     st.button(
         "Preguntar", 

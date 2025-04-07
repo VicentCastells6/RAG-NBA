@@ -1,6 +1,22 @@
-chromadb
-openai
-python-dotenv
-langchain_community
-langchain_text_splitters
-pypdf
+streamlit==1.32.2
+python-dotenv==1.0.1
+
+# LangChain y dependencias relacionadas
+langchain==0.1.14
+langchain-core==0.1.29
+langchain-community==0.0.26
+langchain-chroma==0.1.0
+langchain-ollama==0.1.2
+
+# Base de datos y procesamiento
+chromadb==0.6.3
+tqdm==4.66.2
+
+# Traducción e idioma
+deep-translator==1.11.4
+langdetect==1.0.9
+
+# Extra (por si alguna depende internamente)
+h11==0.14.0
+httpcore==1.0.2
+httpx==0.27.0
